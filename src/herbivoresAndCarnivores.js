@@ -13,11 +13,7 @@ class Animal {
 
   checkHealth() {
     if (this.health <= 0) {
-      const index = Animal.alive.indexOf(this);
-
-      if (index !== -1) {
-        Animal.alive.splice(index, 1);
-      }
+      Animal.alive.filter((name) => name !== this);
     }
   }
 }
@@ -31,15 +27,11 @@ class Herbivore extends Animal {
   hide() {
     this.hidden = true;
   }
-
-  unhide() {
-    this.hidden = false;
-  }
 }
 
 class Carnivore extends Animal {
   constructor(name, health = 100) {
-    super();
+    super(name, health);
   }
 
   bite(victim) {
