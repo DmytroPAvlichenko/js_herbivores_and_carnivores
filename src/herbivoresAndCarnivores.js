@@ -13,7 +13,7 @@ class Animal {
 
   checkHealth() {
     if (this.health <= 0) {
-      Animal.alive.filter((name) => name !== this);
+      Animal.alive = Animal.alive.filter((name) => name !== this);
     }
   }
 }
